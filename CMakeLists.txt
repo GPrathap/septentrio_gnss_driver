@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 project(septentrio_gnss_driver)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ## Compile as C++17
 add_compile_options(-std=c++17)
 
@@ -127,7 +129,7 @@ if(catkin_FOUND)
     boost_regex # ordering is important for regex https://stackoverflow.com/questions/17588440/cannot-link-boost-regex
     ${Boost_LIBRARIES} 
     ${libpcap_LIBRARIES}
-    ${GeographicLib_LIBRARIES}
+    ${GeographicLib_LIBRARIES} stdc++fs
   )
  
   # Installation

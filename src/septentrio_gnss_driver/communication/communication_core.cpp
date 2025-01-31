@@ -29,7 +29,9 @@
 // *****************************************************************************
 
 #include <chrono>
-#include <filesystem>
+// #include <filesystem>
+#include <experimental/filesystem>
+
 #include <fstream>
 #include <linux/serial.h>
 
@@ -59,6 +61,8 @@ static const int8_t POSSTD_DEV_MAX = 100;
  */
 
 namespace io {
+
+    namespace fs = std::experimental::filesystem;
 
     CommunicationCore::CommunicationCore(ROSaicNodeBase* node) :
         node_(node), settings_(node->settings()), telegramHandler_(node),
@@ -314,7 +318,7 @@ namespace io {
 
         if (!settings_->custom_commands_file.empty())
         {
-            if ((std::filesystem::exists(settings_->custom_commands_file)))
+            if ((fs::exists(settings_->custom_commands_file)))
             {
                 std::ifstream filestream(settings_->custom_commands_file);
                 node_->log(log_level::INFO, "Custom command file " +

@@ -2,7 +2,7 @@
 
 # INS Parameters
 
-device: tcp://192.168.3.1:28784
+device: tcp://192.168.1.100:28784
 
 serial:
   baudrate: 921600
@@ -187,4 +187,4 @@ ins_vsm:
   
 # logger
 
-activate_debug_log: false
+activate_debug_log: true
